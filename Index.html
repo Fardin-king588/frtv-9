@@ -1,0 +1,64 @@
+<div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVZDkUwMWtOHTjGiMAIlJVmA-_uW_iwQ7_EtTsPyF2ht1nAZ6fXuxmuMh4DeUlHisLvpcIVTP2VVvy8EIFFBVVa1iox9cvut7kUa8wyEZEBlxVLNylc1TvKYj1MMI1LPFzCMrvGadn9p-MltY1NzYtDkFIBZ7LQrrT6UWmhrgX04Bez9xj0ZlYGx7wFVHV/s1200/2016_Discovery_Kids_logo.svg.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1050" data-original-width="1200" height="175" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVZDkUwMWtOHTjGiMAIlJVmA-_uW_iwQ7_EtTsPyF2ht1nAZ6fXuxmuMh4DeUlHisLvpcIVTP2VVvy8EIFFBVVa1iox9cvut7kUa8wyEZEBlxVLNylc1TvKYj1MMI1LPFzCMrvGadn9p-MltY1NzYtDkFIBZ7LQrrT6UWmhrgX04Bez9xj0ZlYGx7wFVHV/w200-h175/2016_Discovery_Kids_logo.svg.png" width="200" /></a></div><br /><p><br /></p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JW Player with ClearKey DRM</title>
+    <!-- Include the JW Player library -->
+    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+</head>
+<body>
+
+<div id="player"></div>
+
+<script>
+// The provided URL with the DRM parameters
+var input_url ="https://cdn1-freeiptv25.vercel.app/m3u/discoverykidshindi.m3u8|drmScheme=clearkey&drmLicense=9ecad6c4413f8bdc54712ce6c072a2cf:442df559c369bdada8ba3abe97811575";
+
+// Extract the base URL and DRM license keys
+var parts = input_url.split('|');
+var url = parts[0]; // The DASH MPD URL
+var query_string = parts[1];
+
+var params = new URLSearchParams(query_string);
+var drmScheme = params.get('drmScheme');
+var drmLicense = params.get('drmLicense');
+
+var k1, k2;
+
+if (drmScheme === 'clearkey' && drmLicense) {
+    [k1, k2] = drmLicense.split(':');
+}
+
+// Setup JW Player if the URL and keys are present
+if (url && k1 && k2) {
+    jwplayer("player").setup({
+        playlist: [{
+            sources: [{
+                file: url,
+                drm: {
+                    clearkey: {
+                        keyId: k1,
+                        key: k2
+                    }
+                }
+            }]
+        }],
+        autostart: true,
+        width: "100%", 
+        height: "100%", 
+        stretching: "exactfit",
+        aspectratio: "16:9",
+        cast: {} // Enabling Chromecast support
+    });
+} else {
+    console.error("Failed to extract DRM keys or URL from the input.");
+}
+</script>
+
+</body>
+</html>
+
+<p>&nbsp;</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaTq5qigDyy8XjBXHt3bNkkok_ZrpW9LKzL74MYzuIqXrtlQ1idTzKgstiFd270M-lNSx2zRw2Dsz8yFGFWwrln3R2RMMR3jIrLS8j2auBQ-0YClZzq71wT8UbxOCh_vHrcIhH-H3GboukMTZ3kG9pKddEsayoU7pU38bLBiXNqEugb3LKRmJ9mOjjaQHo/s423/FB_IMG_1728271677334.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="419" data-original-width="423" height="198" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaTq5qigDyy8XjBXHt3bNkkok_ZrpW9LKzL74MYzuIqXrtlQ1idTzKgstiFd270M-lNSx2zRw2Dsz8yFGFWwrln3R2RMMR3jIrLS8j2auBQ-0YClZzq71wT8UbxOCh_vHrcIhH-H3GboukMTZ3kG9pKddEsayoU7pU38bLBiXNqEugb3LKRmJ9mOjjaQHo/w200-h198/FB_IMG_1728271677334.jpg" width="200" /></a></div><br /><p></p>
