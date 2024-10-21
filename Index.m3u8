@@ -1,3 +1,0 @@
-#EXTM3U
-#EXT-X-STREAM-INF:BANDWIDTH=150000,RESOLUTION=416x234,CODECS="avc1.42e00a,mp4a.40.2"
-http://sony247channels.akamaized.net/hls/live/2011739-b/TEN1SD/master.m3u8
